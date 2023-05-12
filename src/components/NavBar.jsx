@@ -5,17 +5,15 @@ const NavBar = () => {
     return (
         <ul className="nav justify-content-center">
             <li className="nav-item">
-                <a className="nav-link active text-dark" aria-current="page" href="#">Destacados</a>
+                <a className="nav-link active text-dark" aria-current="page" href="#">Consolas</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Hombre</a>
+                <a className="nav-link text-dark" href="#">Juegos</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Mujer</a>
+                <a className="nav-link text-dark" href="#">Joystick</a>
             </li>
-            <li className="nav-item">
-                <a className="nav-link text-dark" href="#">Niño/a</a>
-            </li>
+
         </ul>
     )
 }
