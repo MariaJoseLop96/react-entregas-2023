@@ -2,6 +2,7 @@
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 
 
@@ -11,6 +12,7 @@ function App() {
    <Header />
    <ItemListContainer  greeting={"pagina en desarollo"} />
    <Footer />
+   
    
     </div>
   );
