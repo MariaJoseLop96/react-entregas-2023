@@ -13,7 +13,7 @@ const ItemListContainer = () => {
         resolve (productos)
       },2000);
       });
-        //variable que recibe la promesa 
+        //variable que recibe la data- promesa 
       promesa.then(datos => {setItems(datos)})
     }, []);
   
