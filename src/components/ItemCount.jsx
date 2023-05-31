@@ -1,17 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
 
-    const[items, SetItems] = useState(1)
+    const[items, setItems] = useState(1)
+    //mas de esto no puedo seleccionar
+    const [itemStock, setItemStock] = useState(stock) //10
 
-    //FUNCION PARA INCREMENTAR CARRITO
+    //FUNCION PARA INCREMENTAR CARRITO   //incrementarStock uso el profe
     const incrementarCarrito = () => {
+        if (items < itemStock){
+            setItems(items + 1);
+
+        }
 
     }
-
+        // decrementarStock puso profe
     const decrementarCarrito = () =>{
+        if (items > 1){
+            setItems(items - 1);
+        }
+    }
+        /// funcion que descuenta del stock
+    const onAdd = () =>{
+        if (items <= itemStock){
+            setItemStock(itemStock - items);
+            setItems(1);
+
+        }
 
     }
+    //efecto para modificar la cantidad de stockprofe puso ITEMSTOCK
+    useEffect(() =>{
+        setItemStock(stock);
+    }, [stock] )
+
   return (
 
      <div className="container">
@@ -26,7 +48,7 @@ const ItemCount = () => {
             </div>
             <div className="row">
                 <div className="col">
-                    <button type="button" className="btn btn-light">Agregar al Carrito</button>
+                    <button type="button" className="btn btn-light" onClick={onAdd}>Agregar al Carrito</button>
                 </div>
             </div>
         </div>      

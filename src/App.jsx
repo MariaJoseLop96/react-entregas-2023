@@ -4,13 +4,15 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
 
 
 function App() {
   return (
     <div className="App">
-   <Header />
-   <ItemListContainer  greeting={"pagina en desarollo"} />
+    <Header /> 
+   <NavBar/>
+   <ItemListContainer/>
    <Footer />
    
    

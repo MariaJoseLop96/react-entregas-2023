@@ -7,14 +7,12 @@ import CartWidget from './CartWidget'
 const Header = () => {
   return (
     <div className='container-fluid'>
-      <div> 
-               <img src="./images/logo.jpg" alt="logo"  width={100}/>
-              <h1>Gamer zone</h1>
+         <div> 
+               <img src="./images/Retro_logo.svg" alt="logo"  width={100}/>
+              <h1 className='titulo'>Gamer zone</h1>
         
-        </div> 
-               
-              <CartWidget />
-            <NavBar />
+         </div>        
+            {/* <NavBar /> */}
             
     </div>
   )     
