@@ -7,6 +7,7 @@ const Error404 = () => {
         <div className="row">
             <div className="col">
                 <h1>Error404</h1>
+                <h3>pagina en desarrollo</h3>
             </div>
         </div>
       </div>
