@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import ItemCount from './ItemCount'
 import productos from "./json/productos.json" // array de productos
 import ItemList from './ItemList';
 
@@ -13,7 +12,7 @@ const ItemListContainer = () => {
         resolve (productos)
       },2000);
       });
-        //variable que recibe la promesa 
+        //variable que recibe la data- promesa 
       promesa.then(datos => {setItems(datos)})
     }, []);
   
@@ -25,7 +24,7 @@ const ItemListContainer = () => {
     <div className='container my-5'>
       <div className='row'>
             <ItemList  items={items}/>
-            <ItemCount stock={10} />
+           
          </div>
       </div>
 

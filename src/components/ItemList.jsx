@@ -1,14 +1,15 @@
 import React from 'react'
 import Item from './Item'
 // agrupador de Item
-const ItemList = () => {
+const ItemList = ({items}) => {
   return (  
-     <div>
-        {Item.map(item => <div key={item.id} className='col-md-4'>
-           <Item item={item} />
-           </div>)}
-    </div>
-    
+    <>
+       {items.map(item => <div key={item.id} className='col-md-4 my-3'>
+        <Item item={item} />
+       </div>)}
+
+
+    </>
 
   )
 }

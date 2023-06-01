@@ -2,7 +2,7 @@
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import ItemCount from './components/ItemCount';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 
@@ -13,6 +13,7 @@ function App() {
     <Header /> 
    <NavBar/>
    <ItemListContainer/>
+   <ItemDetailContainer />
    <Footer />
    
    
