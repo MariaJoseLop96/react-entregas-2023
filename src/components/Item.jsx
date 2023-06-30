@@ -6,7 +6,7 @@ const Item = ({item}) => {
   return (
     <>
           <div class="card">
-            <Link to={"/item/" + item.id} className='text-dark text-decoration-none'>
+            <Link to={"/item/" + item.idx} className='text-dark text-decoration-none'>
                <img src={item.imagen} class="card-img-top" alt={item.titulo}/>
                <div class="card-body">
                 <h3>{item.titulo}</h3>

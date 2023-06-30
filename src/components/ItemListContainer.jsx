@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 //import {getFirestore, doc, getDoc} from "firebase/firestore"; // trae una solo producto
 //import {getFirestore, collection, getDocs} from "firebase/firestore"   // acceder a uuna coleccion de doc desde firestore
+//import {getFirestore, collection, getDocs, where, query, addDoc} from "firebase/firestore"
 import {getFirestore, collection, getDocs, where, query} from "firebase/firestore"
 
 const ItemListContainer = () => {
@@ -46,8 +47,10 @@ const ItemListContainer = () => {
           })
         }, []);   */
 
-      //
-      useEffect(() => {
+      //  
+
+      //acceder a una coleccion de elementos
+       useEffect(() => {
         const db = getFirestore();
         const itemsCollection = collection(db, "items");
         const q = id ? query(itemsCollection, where("categoria", "==", id)) : itemsCollection;
@@ -59,11 +62,20 @@ const ItemListContainer = () => {
           }
           
         })
-      }, [id]);
+      }, [id]);    
 
-  
+       //clase after 3  - proceso de importancion 
+        /*
+       useEffect(() => {
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items");
 
-
+        productos.forEach(producto => {
+          addDoc(itemsCollection, producto);
+        });
+        console.log("productos cargados")
+        }, []);  */
+       
 
 
   return (
