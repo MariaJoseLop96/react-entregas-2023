@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 //import { Link } from 'react-router-dom'
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock, onAdd}) => {
 
     const[items, setItems] = useState(1)
     //mas de esto no puedo seleccionar
@@ -23,12 +23,13 @@ const ItemCount = ({stock}) => {
             setItems(items - 1);
         }
     }
-        /// funcion que descuenta del stock
-    const onAdd = () =>{
+        /// funcion que descuenta del stock  // le cambio el nombre a ADDTOART
+    const agregarAlCarrito = () =>{
         if (items <= itemStock){
             setItemStock(itemStock - items);
             setItems(1);
             setItemAdded(true);
+            onAdd(items)
 
         }
 
@@ -55,7 +56,7 @@ const ItemCount = ({stock}) => {
                    {itemAdded ? <Link to={"/cart"} className="btn btn-light" >Finalizar compra</Link> : <button type="button" className="btn btn-light" onClick={onAdd}>Agregar al Carrito</button>}
                 </div> */}
                  <div className="col">
-                    {itemAdded ? <Link to={"/Cart"} className='btn btn-light'>Finalizar compra</Link> : <button type='button' className='btn btn-light' onClick={onAdd}>Agregar al Carrito</button>}
+                    {itemAdded ? <Link to={"/Cart"} className='btn btn-light'>Finalizar compra</Link> : <button type='button' className='btn btn-light' onClick={agregarAlCarrito}>Agregar al Carrito</button>}
                 </div>
 
             </div>

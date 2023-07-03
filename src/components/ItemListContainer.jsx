@@ -6,10 +6,12 @@ import { useParams } from 'react-router-dom';
 //import {getFirestore, collection, getDocs} from "firebase/firestore"   // acceder a uuna coleccion de doc desde firestore
 //import {getFirestore, collection, getDocs, where, query, addDoc} from "firebase/firestore"
 import {getFirestore, collection, getDocs, where, query} from "firebase/firestore"
+import Loading from './Loading';
 
 const ItemListContainer = () => {
  
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
   const {id} = useParams()
    /* entrega 2
     useEffect(() => {
@@ -57,6 +59,7 @@ const ItemListContainer = () => {
         getDocs(q).then(resultado => {
           if (resultado.size > 0){
             setItems(resultado.docs.map(producto => ({id:producto.id, ...producto.data()})))
+            setLoading(false);
           }else{
             console.error("erro no se encuentra producto")
           }
@@ -81,7 +84,7 @@ const ItemListContainer = () => {
   return (
     <div className='container my-5'>
       <div className='row'>
-            <ItemList  items={items}/> 
+      {loading ? <Loading /> :  <ItemList  items={items}/>}
            
                         {/* <div className='col-md-4'>
                           <img src={items.imagen} alt={items.nombre} className='img-fluid' />
