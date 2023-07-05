@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from './context/CartContext'
 import trash from "./images/trash3.svg"
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -52,6 +53,7 @@ const Cart = () => {
               <tr>
                 <td colSpan={3} className='text-end'>Total a pagar </td>
                 <td className='text-center'>${sumTotal()}</td>
+                <td><Link to={"/checkout"} className='btn btn-success'>Finalizar compra</Link></td>
               </tr>
                 </tbody>
              </table>
