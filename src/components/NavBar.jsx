@@ -1,5 +1,4 @@
 import React from 'react'
-//import ItemListContainer from './ItemListContainer'
 import CartWidget from './CartWidget'
 import { NavLink } from 'react-router-dom'
 

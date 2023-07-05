@@ -14,7 +14,7 @@ const CartContextProvider = ({children})  => {
         }
     };
 
-    //eliminar un producto del carrito     //46:00
+    //eliminar un producto del carrito    
     const removeItem = (id) => {
         const items = cart.filter(product => product.id !== id);
         setCart([...items]);
@@ -27,7 +27,7 @@ const CartContextProvider = ({children})  => {
     const isInCart = (id) => {
         return cart.some(product => product.id === id)
     };
-     // profe usa cartTotal
+     
     const carritoTotal = () => {
         return cart.reduce((acum, item) => acum += item.cantidad, 0);
     }

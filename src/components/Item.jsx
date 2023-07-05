@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// componente a desarrollar -mostrar info producto
+// -mostrar info producto
 const Item = ({item}) => {
   return (
     <>

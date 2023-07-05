@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { collection, getFirestore, addDoc,} from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 
-//import  {updateDoc, doc } from 'firebase/firestore'
+
 const Checkout = () => {
 
     const [nombre, setNombre] = useState("");
