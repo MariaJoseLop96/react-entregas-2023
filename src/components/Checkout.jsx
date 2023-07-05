@@ -3,6 +3,8 @@ import { CartContext } from './context/CartContext';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { collection, getFirestore, addDoc,} from 'firebase/firestore';
+import { Link } from 'react-router-dom';
+
 //import  {updateDoc, doc } from 'firebase/firestore'
 const Checkout = () => {
 
@@ -10,7 +12,7 @@ const Checkout = () => {
     const [email, setEmail] = useState("");
     const [telefono, setTelefono] = useState("");
     const [orderId, setOrderId] = useState("");
-    const {cart, sumTotal} = useContext(CartContext)
+    const {cart, clear,  sumTotal} = useContext(CartContext)
     const generarOrden = () => {
         if (nombre.length === 0) {
             return false;
@@ -35,7 +37,9 @@ const Checkout = () => {
         const db = getFirestore();
         const OrdersCollection = collection(db, "orders");
         addDoc(OrdersCollection, order).then(resultado =>{
+           
           setOrderId(resultado.id)  
+          clear();
         })
         .catch(resultado => {
             console.log("no se puede generar la compra")
@@ -69,7 +73,7 @@ const Checkout = () => {
                         <button type='button' className='btn btn-primary' onClick={generarOrden}> Generar compra</button>
                     </form>
                </div>
-               <div className='col-md-7 offset-md-1'>
+               <div className='col-md-6 offset-md-1'>
                <table className='table'>
              <tbody>
               
@@ -86,20 +90,20 @@ const Checkout = () => {
                 ))
               }
               <tr>
-                <td colSpan={3} className='text-end'>Total a pagar </td>
+                <td colSpan={3} className='text-end'>Total a pagar</td>
                 <td className='text-center'>${sumTotal()}</td>
-               
               </tr>
                 </tbody>
              </table>
                </div>
             </div>
-            <div className="row">
+            <div className="row mt-3" >
                 <div className="col text-center">
                 {orderId ? <div className="alert alert-warning" role="alert">
                         <h1 className="fs-1 text">Gracias por tu Compra!</h1>
                         <p>Tu Orden de Compra es: <b>{orderId}</b></p>
                     </div> : ""}
+                    <Link to={"/"} className='btn btn-light'>ir a Home</Link>
                 </div>
             </div>
         </div>   
